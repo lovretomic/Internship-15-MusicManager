@@ -1,3 +1,4 @@
+import AddAlbum from "./components/AddAlbum";
 import Header from "./components/Header";
 import Album from "./components/Album";
 
@@ -17,6 +18,7 @@ let id = 0;
 const App = () => {
   return (
     <div className="App">
+      <AddAlbum />
       <Header />
       {data.map((album) => 
         <Album data={album} key={id++}/>
