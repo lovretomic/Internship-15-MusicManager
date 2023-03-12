@@ -1,3 +1,5 @@
+import { lsKey } from "./enums";
+
 export class Helper {
   static greet() {
     console.log('Greetings!');
@@ -9,5 +11,13 @@ export class Helper {
   static hideAddMenu() {
     const addMenu = document.querySelector('.add');
     addMenu.style.display = 'none';
+  }
+  static storageData() {
+    return JSON.parse(localStorage.getItem(lsKey));
+  }
+  static addData(obj) {
+    let data = JSON.parse(localStorage.getItem(lsKey));
+    data.push(obj);
+    localStorage.setItem(lsKey, JSON.stringify(data));
   }
 }

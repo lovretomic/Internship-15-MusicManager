@@ -1,25 +1,35 @@
 import { Helper } from "../Helper.js";
+import { genres } from "../enums.js";
 
-const AddAlbum = () => {
-  const handleClick = () => {
+const AddAlbum = ({addAlbum}) => {
+  const close = () => {
     Helper.hideAddMenu();
+  }
+
+  const handleClick = () => {
+    const data = {
+      title: document.querySelector('.add__form-input.title').value,
+      author: document.querySelector('.add__form-input.author').value,
+      genre: document.querySelector('.add__form-input.genre').value,
+      year: document.querySelector('.add__form-input.year').value
+    }
+    Helper.addData(data);
+    addAlbum(data);
   }
 
   return (
     <div className="add">
       <div className="add__form">
-      <button className="add__form-button" onClick={handleClick}>X</button>
+      <button className="add__form-button" onClick={close}>X</button>
         <h2 className="add__form-title">Novi album</h2>
-        <input type="text" className="add__form-input title"/>
-        <input type="text" className="add__form-input author"/>
-        <select name="" id="" className="add__form-input">
+        <input type="text" className="add__form-input title" placeholder="Unesi naslov"/>
+        <input type="text" className="add__form-input author" placeholder="Unesi autora"/>
+        <select name="" id="" className="add__form-input genre">
           <option value="">-- Odaberi žanr --</option>
-          <option value="">Pop</option>
-          <option value="">Rock</option>
-          <option value="">Jazz</option>
-          <option value="">Punk</option>
+          {genres.map((genre) => (<option value="">{genre}</option>))}
         </select>
-        <input type="number" className="add__form-input year"/>
+        <input type="number" className="add__form-input year" placeholder="Unesi godinu"/>
+        <button className="add__form-submit" onClick={handleClick}>Dodaj album</button>
       </div>
     </div>
   )
