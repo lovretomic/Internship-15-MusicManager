@@ -4,6 +4,7 @@ import { genres } from "../enums.js";
 const AddAlbum = ({setAlbums}) => {
   const close = () => {
     Helper.hideAddMenu();
+    Helper.clearAddMenu();
   }
 
   const handleClick = () => {
@@ -12,8 +13,14 @@ const AddAlbum = ({setAlbums}) => {
     const genreInput = document.querySelector('.add__form-input.genre');
     const genre = genreInput.options[genreInput.selectedIndex].text;
     const year = +document.querySelector('.add__form-input.year').value;
+
+    if (!title || !author || !year || genre === '-- Odaberi žanr --') {
+      alert('Neispravan unos!');
+      return;
+    }
+
     const date = new Date();
-    const id = Helper.storageData().length;
+    const id = Helper.generateId();
 
     let d = date.getDate();
     let m = date.getMonth() + 1;
@@ -25,6 +32,7 @@ const AddAlbum = ({setAlbums}) => {
     Helper.addData(data);
     setAlbums(Helper.storageData());
     Helper.hideAddMenu();
+    Helper.clearAddMenu();
   }
 
   return (

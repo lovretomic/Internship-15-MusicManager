@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(15, 15, 15);
+  background-color: var(--color-dark-gray);
   color: white;
 }
 
@@ -19,6 +19,7 @@ code {
 }
 
 :root {
+  --color-dark-gray: rgb(15, 15, 15);
   --color-neon-green: rgb(20, 192, 20);
   --color-dark-green: rgb(11, 110, 11);
 }
@@ -42,6 +43,7 @@ code {
 
 .add__form {
   border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--color-dark-gray);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -192,6 +194,10 @@ code {
 .album__remove {
   height: 30px;
   margin: auto 0 auto 30px;
+}
+
+.added-today {
+  border: 1px solid rgba(255, 255, 0, 0.05);
 }
 
 .no-albums {
