@@ -15,7 +15,6 @@ const Album = ({ data, setAlbums, setAlbumsCount }) => {
       if (storageData[i].id === data.id)
         Helper.removeData(i)
 
-    //setAlbums(Helper.storageData());
     setAlbums(Helper.filterData(document.querySelector('.header__input').value));
     setAlbumsCount(Helper.storageData().length)
   }
