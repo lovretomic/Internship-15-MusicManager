@@ -23,6 +23,7 @@ const AddAlbum = ({addAlbum}) => {
 
     Helper.addData(data);
     addAlbum(data);
+    Helper.hideAddMenu();
   }
 
   return (

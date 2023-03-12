@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="App">
       <AddAlbum addAlbum={handleSetAlbums}></AddAlbum>
-      <Header />
+      <Header setAlbums={setAlbums}/>
       <AlbumsHeader />
       {albums.map((album) => 
         <Album data={album} key={id++}/>

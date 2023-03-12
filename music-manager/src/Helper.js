@@ -20,4 +20,8 @@ export class Helper {
     data.push(obj);
     localStorage.setItem(lsKey, JSON.stringify(data));
   }
+  static filterData(str) {
+    const data = this.storageData();
+    return data.filter(obj => obj.title.toUpperCase().search(str.toUpperCase()) != -1);
+  }
 }
