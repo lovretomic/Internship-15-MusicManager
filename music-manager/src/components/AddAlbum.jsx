@@ -7,12 +7,20 @@ const AddAlbum = ({addAlbum}) => {
   }
 
   const handleClick = () => {
-    const data = {
-      title: document.querySelector('.add__form-input.title').value,
-      author: document.querySelector('.add__form-input.author').value,
-      genre: document.querySelector('.add__form-input.genre').value,
-      year: document.querySelector('.add__form-input.year').value
-    }
+    const title = document.querySelector('.add__form-input.title').value;
+    const author = document.querySelector('.add__form-input.author').value;
+    const genreInput = document.querySelector('.add__form-input.genre');
+    const genre = genreInput.options[genreInput.selectedIndex].text;
+    const year = document.querySelector('.add__form-input.year').value;
+    const date = new Date();
+
+    let d = date.getDate();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+    const dateAdded = d + '.' + m + '.' + y;
+
+    const data = {title, author, genre, year, dateAdded};
+
     Helper.addData(data);
     addAlbum(data);
   }

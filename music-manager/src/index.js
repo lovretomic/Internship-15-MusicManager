@@ -5,7 +5,7 @@ import App from './App';
 import { lsKey } from './enums';
 
 if (!localStorage.getItem(lsKey))
-  localStorage.setItem(lsKey, JSON.stringify([{hello: 'text'}]))
+  localStorage.setItem(lsKey, JSON.stringify([]))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Album from "./components/Album";
 import { Helper } from "./Helper";
 import { useState } from "react";
+import AlbumsHeader from "./components/AlbumsHeader";
 
 const data = [
   {
@@ -28,10 +29,10 @@ const App = () => {
     <div className="App">
       <AddAlbum addAlbum={handleSetAlbums}></AddAlbum>
       <Header />
+      <AlbumsHeader />
       {albums.map((album) => 
         <Album data={album} key={id++}/>
       )}
-      <button onClick={() => console.log(albums)}>Console log albums</button>
     </div>
   );
 }

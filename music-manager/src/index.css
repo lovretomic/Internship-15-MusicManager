@@ -149,3 +149,38 @@ code {
 .header__button:active {
   background-image: linear-gradient(to bottom, var(--color-dark-green), var(--color-neon-green));
 }
+
+.album,
+.albums__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.albums__header {
+  border-bottom: 1px solid rgb(20, 20, 20);
+}
+
+.albums__header > p:last-of-type {
+  text-align: end;
+}
+
+.album__title {
+  color: white;
+  font-weight: bold;
+}
+.album__author {
+  color: gray
+}
+.album__genre {
+  color: gray;
+  font-style: italic;
+}
+.album__year {
+  color: gray;
+}
+.album__date {
+  color: gray;
+  text-align: end;
+}

@@ -1,8 +1,11 @@
 const Album = ({ data }) => {
   return (
-    <div>
-     <h1>{data.title}</h1>
-     <p>{data.artist}</p>
+    <div className="album">
+     <p className="album__title">{data.title}</p>
+     <p className="album__author">{data.author}</p>
+     <p className="album__genre">{data.genre}</p>
+     <p className="album__year">{data.year}</p>
+     <p className="album__date">{data.dateAdded}</p>
     </div>
   );
 }
