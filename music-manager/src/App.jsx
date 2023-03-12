@@ -21,13 +21,9 @@ let id = 0;
 const App = () => {
   const [albums, setAlbums] = useState(Helper.storageData());
 
-  const handleSetAlbums = (newAlbum) => {
-    setAlbums([...albums, newAlbum]);
-  }
-
   return (
     <div className="App">
-      <AddAlbum addAlbum={handleSetAlbums}></AddAlbum>
+      <AddAlbum setAlbums={setAlbums}></AddAlbum>
       <Header setAlbums={setAlbums}/>
       <AlbumsHeader />
       {albums.map((album) => 

@@ -18,10 +18,22 @@ export class Helper {
   static addData(obj) {
     let data = JSON.parse(localStorage.getItem(lsKey));
     data.push(obj);
+    this.sortData(data);
     localStorage.setItem(lsKey, JSON.stringify(data));
   }
   static filterData(str) {
     const data = this.storageData();
     return data.filter(obj => obj.title.toUpperCase().search(str.toUpperCase()) != -1);
+  }
+  static sortData(data) {
+    return data.sort((a, b) => {
+      if (a.year !== b.year) {
+        return a.year - b.year;
+      } else if (a.author !== b.author) {
+        return a.author.localeCompare(b.author);
+      } else {
+        return a.title.localeCompare(b.title);
+      }
+    });
   }
 }

@@ -1,7 +1,7 @@
 import { Helper } from "../Helper.js";
 import { genres } from "../enums.js";
 
-const AddAlbum = ({addAlbum}) => {
+const AddAlbum = ({setAlbums}) => {
   const close = () => {
     Helper.hideAddMenu();
   }
@@ -11,7 +11,7 @@ const AddAlbum = ({addAlbum}) => {
     const author = document.querySelector('.add__form-input.author').value;
     const genreInput = document.querySelector('.add__form-input.genre');
     const genre = genreInput.options[genreInput.selectedIndex].text;
-    const year = document.querySelector('.add__form-input.year').value;
+    const year = +document.querySelector('.add__form-input.year').value;
     const date = new Date();
 
     let d = date.getDate();
@@ -22,7 +22,7 @@ const AddAlbum = ({addAlbum}) => {
     const data = {title, author, genre, year, dateAdded};
 
     Helper.addData(data);
-    addAlbum(data);
+    setAlbums(Helper.storageData());
     Helper.hideAddMenu();
   }
 
