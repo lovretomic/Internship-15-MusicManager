@@ -26,9 +26,9 @@ const App = () => {
       <AddAlbum setAlbums={setAlbums}></AddAlbum>
       <Header setAlbums={setAlbums}/>
       <AlbumsHeader />
-      {albums.map((album, i) => 
+      {albums.length ? albums.map((album, i) => 
         <Album data={album} listIndex={i} setAlbums={setAlbums} key={id++}/>
-      )}
+      ) : <p className="no-albums">Nije dodan niti jedan album.</p>}
     </div>
   );
 }

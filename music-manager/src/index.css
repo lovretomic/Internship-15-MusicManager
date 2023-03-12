@@ -193,3 +193,10 @@ code {
   height: 30px;
   margin: auto 0 auto 30px;
 }
+
+.no-albums {
+  text-align: center;
+  font-style: italic;
+  color: gray;
+  margin-top: 60px;
+}
