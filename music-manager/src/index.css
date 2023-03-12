@@ -153,7 +153,7 @@ code {
 .album,
 .albums__header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 10%;
   margin-top: 30px;
   padding: 0 20px;
 }
@@ -170,17 +170,26 @@ code {
   color: white;
   font-weight: bold;
 }
+
 .album__author {
   color: gray
 }
+
 .album__genre {
   color: gray;
   font-style: italic;
 }
+
 .album__year {
   color: gray;
 }
+
 .album__date {
   color: gray;
   text-align: end;
+}
+
+.album__remove {
+  height: 30px;
+  margin: auto 0 auto 30px;
 }

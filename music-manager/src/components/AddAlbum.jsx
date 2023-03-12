@@ -13,13 +13,14 @@ const AddAlbum = ({setAlbums}) => {
     const genre = genreInput.options[genreInput.selectedIndex].text;
     const year = +document.querySelector('.add__form-input.year').value;
     const date = new Date();
+    const id = Helper.storageData().length;
 
     let d = date.getDate();
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
-    const dateAdded = d + '.' + m + '.' + y;
+    const dateAdded = [d, m, y];
 
-    const data = {title, author, genre, year, dateAdded};
+    const data = {title, author, genre, year, dateAdded, id};
 
     Helper.addData(data);
     setAlbums(Helper.storageData());

@@ -36,4 +36,9 @@ export class Helper {
       }
     });
   }
+  static removeData(i) {
+    let data = JSON.parse(localStorage.getItem(lsKey));
+    data.splice(i, 1)
+    localStorage.setItem(lsKey, JSON.stringify(data));
+  }
 }

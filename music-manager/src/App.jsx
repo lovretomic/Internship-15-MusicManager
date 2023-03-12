@@ -26,8 +26,8 @@ const App = () => {
       <AddAlbum setAlbums={setAlbums}></AddAlbum>
       <Header setAlbums={setAlbums}/>
       <AlbumsHeader />
-      {albums.map((album) => 
-        <Album data={album} key={id++}/>
+      {albums.map((album, i) => 
+        <Album data={album} listIndex={i} setAlbums={setAlbums} key={id++}/>
       )}
     </div>
   );
