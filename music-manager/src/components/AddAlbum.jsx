@@ -45,7 +45,7 @@ const AddAlbum = ({setAlbums, setAlbumsCount}) => {
         <input type="text" className="add__form-input author" placeholder="Unesi autora"/>
         <select name="" id="" className="add__form-input genre">
           <option value="">-- Odaberi žanr --</option>
-          {genres.map((genre) => (<option value="">{genre}</option>))}
+          {genres.map((genre) => (<option value="" key={genre}>{genre}</option>))}
         </select>
         <input type="number" className="add__form-input year" placeholder="Unesi godinu"/>
         <button className="add__form-submit" onClick={handleClick}>Dodaj album</button>

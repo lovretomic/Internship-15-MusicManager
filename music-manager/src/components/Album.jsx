@@ -26,7 +26,7 @@ const Album = ({ data, setAlbums, setAlbumsCount }) => {
      <p className="album__title">{data.title}</p>
      <p className="album__author">{data.author}</p>
      <p className="album__genre">{data.genre}</p>
-     <p className="album__year">{data.year}</p>
+     <p className="album__year">{data.year}.</p>
      <p className="album__date">{data.dateAdded.join('.')}.</p>
      <button className="album__remove" onClick={handleClick}>Ukloni</button>
     </div>

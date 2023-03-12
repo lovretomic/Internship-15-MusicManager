@@ -26,9 +26,9 @@ const App = () => {
     <div className="App">
       <AddAlbum setAlbums={setAlbums} setAlbumsCount={setAlbumsCount}></AddAlbum>
       <Header setAlbums={setAlbums} albumsCount={albumsCount}/>
-      <AlbumsHeader />
+      <AlbumsHeader key={id++}/>
       {albums.length ? albums.map((album) => 
-        <Album data={album} setAlbums={setAlbums} setAlbumsCount={setAlbumsCount} key={id++}/>
+        <Album data={album} setAlbums={setAlbums} setAlbumsCount={setAlbumsCount} key={album.id}/>
       ) : <p className="no-albums">{Helper.storageData().length === 0 ? 'Nije dodan niti jedan album.' : 'Niti jedan album ne odgovara pretrazi.'}</p>}
     </div>
   );
