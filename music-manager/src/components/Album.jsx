@@ -1,6 +1,6 @@
 import { Helper } from "../Helper";
 
-const Album = ({ data, listIndex, setAlbums }) => {
+const Album = ({ data, setAlbums, setAlbumsCount }) => {
   const today = new Date();
   const addedToday =
     (today.getDate() == data.dateAdded[0]) &&
@@ -10,8 +10,14 @@ const Album = ({ data, listIndex, setAlbums }) => {
   const classes = `album${addedToday ? ' added-today': ''}`;
 
   const handleClick = () => {
-    Helper.removeData(listIndex);
-    setAlbums(Helper.storageData());
+    const storageData = Helper.storageData();
+    for (let i = 0; i < storageData.length; i++)
+      if (storageData[i].id === data.id)
+        Helper.removeData(i)
+
+    //setAlbums(Helper.storageData());
+    setAlbums(Helper.filterData(document.querySelector('.header__input').value));
+    setAlbumsCount(Helper.storageData().length)
   }
 
   return (

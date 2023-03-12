@@ -1,6 +1,6 @@
 import { Helper } from "../Helper";
 
-const Header = ({setAlbums}) => {
+const Header = ({setAlbums, albumsCount}) => {
   const addAlbum = () => {
     Helper.showAddMenu();
   }
@@ -12,7 +12,7 @@ const Header = ({setAlbums}) => {
     <header className="header">
       <h1 className="header__title">Music Manager</h1>
       <input className="header__input" placeholder="Filtritaj albume" onChange={filter}/> 
-      <button className="header__button" onClick={addAlbum}>+ Dodaj album</button>
+      <button className="header__button" onClick={addAlbum} disabled={albumsCount < 10 ? false : true}>+ Dodaj album {albumsCount}/10</button>
     </header>
   )
 }

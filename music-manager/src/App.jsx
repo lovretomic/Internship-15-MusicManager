@@ -20,15 +20,16 @@ let id = 0;
 
 const App = () => {
   const [albums, setAlbums] = useState(Helper.storageData());
+  const [albumsCount, setAlbumsCount] = useState(Helper.storageData().length);
 
   return (
     <div className="App">
-      <AddAlbum setAlbums={setAlbums}></AddAlbum>
-      <Header setAlbums={setAlbums}/>
+      <AddAlbum setAlbums={setAlbums} setAlbumsCount={setAlbumsCount}></AddAlbum>
+      <Header setAlbums={setAlbums} albumsCount={albumsCount}/>
       <AlbumsHeader />
-      {albums.length ? albums.map((album, i) => 
-        <Album data={album} listIndex={i} setAlbums={setAlbums} key={id++}/>
-      ) : <p className="no-albums">Nije dodan niti jedan album.</p>}
+      {albums.length ? albums.map((album) => 
+        <Album data={album} setAlbums={setAlbums} setAlbumsCount={setAlbumsCount} key={id++}/>
+      ) : <p className="no-albums">{Helper.storageData().length === 0 ? 'Nije dodan niti jedan album.' : 'Niti jedan album ne odgovara pretrazi.'}</p>}
     </div>
   );
 }

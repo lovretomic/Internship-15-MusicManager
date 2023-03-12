@@ -1,7 +1,7 @@
 import { Helper } from "../Helper.js";
 import { genres } from "../enums.js";
 
-const AddAlbum = ({setAlbums}) => {
+const AddAlbum = ({setAlbums, setAlbumsCount}) => {
   const close = () => {
     Helper.hideAddMenu();
     Helper.clearAddMenu();
@@ -31,6 +31,7 @@ const AddAlbum = ({setAlbums}) => {
 
     Helper.addData(data);
     setAlbums(Helper.storageData());
+    setAlbumsCount(Helper.storageData().length);
     Helper.hideAddMenu();
     Helper.clearAddMenu();
   }

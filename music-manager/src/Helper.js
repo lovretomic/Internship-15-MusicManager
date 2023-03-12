@@ -48,7 +48,7 @@ export class Helper {
     let data = JSON.parse(localStorage.getItem(lsKey));
     let ids = data.map(album => album.id);
     ids.sort();
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 10; i++) {
       if (ids[i] !== i)
         return i;
     }
